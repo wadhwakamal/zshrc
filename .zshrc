@@ -34,9 +34,9 @@ alias npm-update="npx npm-check -u";
 alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 
 ## Xcode Playground aliases
-function xp { playground -t "~/code/playground/$@"; }
-function xpu { playground -t "~/code/playground/$1" -u "$2"; }
-function xpv { playground -t "~/code/playground/$@" -v; }
+function xp { playground -t "~/code/ios/playground/$@"; }
+function xpu { playground -t "~/code/ios/playground/$1" -u "$2"; }
+function xpv { playground -t "~/code/ios/playground/$@" -v; }
 alias xph="playground -h";
 function xc { file="$(find . -maxdepth 1 -name '*.xcworkspace' -o -name '*.xcodeproj' | head -1)"; echo "Opening file:" $file; open $file; }
 
@@ -55,11 +55,11 @@ alias ga="git add .";
 alias gb="git branch";
 alias gbr="git branch remote"
 alias gfr="git remote update"
-alias gbn="git checkout -B "
+alias gcb="git checkout -B "
 alias grf="git reflog";
 alias grh="git reset HEAD~" # last commit
 alias gac="git add . && git commit -a -m "
-alias gsu="git gpush --set-upstream origin "
+alias gsu="git push --set-upstream origin "
 alias glog="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches"
 
 
@@ -82,6 +82,7 @@ alias cls="clear"
 alias walnut="ssh pi@walnut.local"
 alias butterscotch="ssh pi@butterscotch.local"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias hub="sh /Users/kamalwadhwa/Share/Data/hub.sh"
 
 ## FFMPEG
 function ffm { ffmpeg -i "$@".ts -map 0 -c copy "$@".mov; }
