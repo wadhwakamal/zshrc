@@ -13,6 +13,7 @@ plugins=(
 )
 
 # z extension for browsing
+# https://github.com/rupa/z
 . ~/Shell/z.sh
 
 source $ZSH/oh-my-zsh.sh
