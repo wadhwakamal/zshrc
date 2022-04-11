@@ -35,6 +35,7 @@ alias npm-update="npx npm-check -u";
 alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 
 ## Xcode Playground aliases
+# https://github.com/JohnSundell/Playground
 function xp { playground -t "~/code/ios/playground/$@"; }
 function xpu { playground -t "~/code/ios/playground/$1" -u "$2"; }
 function xpv { playground -t "~/code/ios/playground/$@" -v; }
