@@ -40,7 +40,7 @@ function xp { playground -t "~/code/ios/playground/$@"; }
 function xpu { playground -t "~/code/ios/playground/$1" -u "$2"; }
 function xpv { playground -t "~/code/ios/playground/$@" -v; }
 alias xph="playground -h";
-function xc { file="$(find . -maxdepth 1 -name '*.xcworkspace' -o -name '*.xcodeproj' | head -1)"; echo "Opening file:" $file; open $file; }
+function xc { file="$(find . -maxdepth 1 -name '*.xcworkspace' -o -name '*.xcodeproj' | sort --reverse | head -1)"; echo "Opening file:" $file; open $file; }
 
 ## git aliases
 function gc { git commit -m "$@"; }
