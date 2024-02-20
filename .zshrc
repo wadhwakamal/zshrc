@@ -1,4 +1,4 @@
-export ZSH="/Users/username/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
@@ -13,7 +13,6 @@ plugins=(
 )
 
 # z extension for browsing
-# https://github.com/rupa/z
 . ~/Shell/z.sh
 
 source $ZSH/oh-my-zsh.sh
@@ -33,9 +32,12 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 alias deleteDSFiles="find . -name '.DS_Store' -type f -delete"
 alias npm-update="npx npm-check -u";
 alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
+alias s="subl";
+
+alias python="/opt/homebrew/bin/python3";
+alias pip="/opt/homebrew/bin/pip3";
 
 ## Xcode Playground aliases
-# https://github.com/JohnSundell/Playground
 function xp { playground -t "~/code/ios/playground/$@"; }
 function xpu { playground -t "~/code/ios/playground/$1" -u "$2"; }
 function xpv { playground -t "~/code/ios/playground/$@" -v; }
@@ -84,10 +86,14 @@ alias cls="clear"
 alias walnut="ssh pi@walnut.local"
 alias butterscotch="ssh pi@butterscotch.local"
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias hub="sh /Users/kamalwadhwa/Share/Data/hub.sh"
+alias hub="sh /Users/username/Share/Data/hub.sh"
 
 ## FFMPEG
 function ffm { ffmpeg -i "$@".ts -map 0 -c copy "$@".mov; }
+
+## ADB
+function questdown { adb push "$@" /sdcard/Download }
+alias questspace="adb shell df -h /data"
 
 ## this loads NVM
 #[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
@@ -122,5 +128,30 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # Change color of auto suggestions to something that can be visible, Since the default is not!
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
+export PATH="/Users/username/Downloads/platform-tools:$PATH"
+
 # https://direnv.net/docs/hook.html
 eval "$(direnv hook zsh)"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/username/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/username/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/username/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/username/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export PATH=$PATH:$HOME/.maestro/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/username/code/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/username/code/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/username/code/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/username/code/google-cloud-sdk/completion.zsh.inc'; fi
